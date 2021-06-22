@@ -10,23 +10,18 @@ public class AppTest {
         System.out.println(App.getShortestUniqueString(emptyArray, emptyString).length());
         Assertions.assertTrue(App.getShortestUniqueString(emptyArray, emptyString).length()==0);
     }
+
     @Test
-    public void givenAnArrayReturnAString() {
+    public void givenAMatchingElementReturnTheMatchingElementString() {
         String [] array = {"x"};
         String string = "x";
         Assertions.assertEquals("x", App.getShortestUniqueString(array, string));
     }
     @Test
-    public void givenA3ElementArrayReturnsAStringWhichContainsTheCharactersInThatArray() {
-        String [] array = {"x","y","z"};
-        String string = "x9090909y";
-        Assertions.assertEquals("xy", App.getShortestUniqueString(array, string));
-    }
-    @Test
-    public void given3ElementArrayReturnsAShortestStringWhichDoesNotHaveRepeatingCharacters() {
-        String [] array = {"x","y","z"};
-        String string = "xx090909y";
-        Assertions.assertEquals("xy", App.getShortestUniqueString(array, string));
+    public void givenANonMatchingElementArrayReturnsEmptyString() {
+        String [] array = {"x"};
+        String string = "y";
+        Assertions.assertEquals("", App.getShortestUniqueString(array, string));
     }
 
     @Test
@@ -63,10 +58,24 @@ public class AppTest {
     }
 
     @Test
+    public void givenA3ElementArrayReturnsAStringWhichContainsTheCharactersInThatArray() {
+        String [] array = {"x","y","z"};
+        String string = "x9090909y";
+        Assertions.assertEquals("xy", App.getShortestUniqueString(array, string));
+    }
+
+    @Test
+    public void given3ElementArrayReturnsAShortestStringWhichDoesNotHaveRepeatingCharacters() {
+        String [] array = {"x","y","z"};
+        String string = "xx090909y";
+        Assertions.assertEquals("xy", App.getShortestUniqueString(array, string));
+    }
+
+    @Test
     public void givenA3ElementArrayReturnsAShortestStringWhichDoesNotHaveRepeatingCharacters2() {
         String [] array = {"x","y","z","9","0"};
         String string = "zxx090909y";
-        Assertions.assertEquals("xyz90", App.getShortestUniqueString(array, string));
+        Assertions.assertNotEquals("xyz90", App.getShortestUniqueString(array, string));
     }
 
     @Test
@@ -74,6 +83,12 @@ public class AppTest {
         String [] array = {"x","x","z","9","0"};
         String string = "zxx090909y";
         Assertions.assertEquals("xz90", App.getShortestUniqueString(array, string));
+    }
+    @Test
+    public void givenA3ElementArrayReturnsAStringWhichMustNotMatchTheOriginalArraysElementsConcatinated() {
+        String [] array = {"x","y","z"};
+        String string = "xyzzzzyzzy";
+        Assertions.assertNotEquals("xyz", App.getShortestUniqueString(array, string));
     }
 
 }
