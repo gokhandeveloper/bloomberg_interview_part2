@@ -1,3 +1,6 @@
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -8,9 +11,8 @@ public class App {
 
     }
     public static String getShortestUniqueString(String[] array, String string) {
-        if(array.length > 30 || string.length()>500) {
-            return "";
-        }
+        String x = checkLengths(array, string);
+        if (x != null) return x;
         if (array.length >= 1 &&string.length()>=1) {
             List<String> foundStrings = new ArrayList<>();
             for (String stringInArray : array) {
@@ -21,13 +23,26 @@ public class App {
                     }
                 }
             }
-            String returnedString = "";
-            for (int i=0; i<foundStrings.size(); i++) {
-                returnedString = returnedString.concat(foundStrings.get(i));
-            }
-            return returnedString;
+            return concatinateFoundStrings(foundStrings);
         }
         return "";
+    }
+
+    @NotNull
+    private static String concatinateFoundStrings(List<String> foundStrings) {
+        String returnedString = "";
+        for (int i = 0; i< foundStrings.size(); i++) {
+            returnedString = returnedString.concat(foundStrings.get(i));
+        }
+        return returnedString;
+    }
+
+    @Nullable
+    private static String checkLengths(String[] array, String string) {
+        if(array.length > 30 || string.length()>500) {
+            return "";
+        }
+        return null;
     }
 
     public static List<String> removeDuplicates(List<String> list) {
