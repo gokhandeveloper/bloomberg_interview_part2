@@ -1,6 +1,3 @@
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -19,8 +16,7 @@ public class App {
         }
         return "";
     }
-
-    @NotNull
+    
     private static List<String> findStringsInArray(String[] array, String string) {
         List<String> foundStrings = new ArrayList<>();
         for (String stringInArray : array) {
@@ -34,7 +30,6 @@ public class App {
         return foundStrings;
     }
 
-    @NotNull
     private static String concatinateFoundStrings(List<String> foundStrings) {
         String returnedString = "";
         for (int i = 0; i< foundStrings.size(); i++) {
@@ -43,7 +38,6 @@ public class App {
         return returnedString;
     }
 
-    @Nullable
     private static String checkLengths(String[] array, String string) {
         if(array.length > 30 || string.length()>500) {
             return "";
