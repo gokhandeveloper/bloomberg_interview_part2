@@ -91,4 +91,11 @@ public class AppTest {
         Assertions.assertNotEquals("xyz", App.getShortestUniqueString(array, string));
     }
 
+    @Test
+    public void integration() {
+        String [] array = {"x","8","y","z","a"};
+        String string = "878xus8cu9s8dcj8sdcs9898z4j94cimsdkc";
+        Assertions.assertEquals("x8z", App.getShortestUniqueString(array, string));
+    }
+
 }
