@@ -17,13 +17,13 @@ public class AppTest {
         Assertions.assertEquals("x", App.getShortestUniqueString(array, string));
     }
     @Test
-    public void givenACharacterOfArraysReturnsAShortestString() {
+    public void givenA3ElementArrayReturnsAStringWhichContainsTheCharactersInThatArray() {
         String [] array = {"x","y","z"};
         String string = "x9090909y";
         Assertions.assertEquals("xy", App.getShortestUniqueString(array, string));
     }
     @Test
-    public void givenACharacterOfArraysReturnsAShortestStringWhichDoesNotHaveRepeatingCharacters() {
+    public void given3ElementArrayReturnsAShortestStringWhichDoesNotHaveRepeatingCharacters() {
         String [] array = {"x","y","z"};
         String string = "xx090909y";
         Assertions.assertEquals("xy", App.getShortestUniqueString(array, string));
@@ -63,10 +63,17 @@ public class AppTest {
     }
 
     @Test
-    public void givenACharacterOfArraysReturnsAShortestStringWhichDoesNotHaveRepeatingCharacters2() {
+    public void givenA3ElementArrayReturnsAShortestStringWhichDoesNotHaveRepeatingCharacters2() {
         String [] array = {"x","y","z","9","0"};
         String string = "zxx090909y";
         Assertions.assertEquals("xyz90", App.getShortestUniqueString(array, string));
+    }
+
+    @Test
+    public void givenARepeatingElementArrayReturnsAShortestStringWhichDoesNotHaveRepeatingCharacters() {
+        String [] array = {"x","x","z","9","0"};
+        String string = "zxx090909y";
+        Assertions.assertEquals("xz90", App.getShortestUniqueString(array, string));
     }
 
 }

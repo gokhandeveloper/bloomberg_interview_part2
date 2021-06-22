@@ -16,10 +16,10 @@ public class App {
         }
         return "";
     }
-    
+
     private static List<String> findStringsInArray(String[] array, String string) {
         List<String> foundStrings = new ArrayList<>();
-        for (String stringInArray : array) {
+        for (String stringInArray : removeDuplicates(Arrays.asList(array))) {
             List<String> splittedStrings = Arrays.asList(string.split(""));
             for(String splittedString : removeDuplicates(splittedStrings)) {
                 if(splittedString.equals(stringInArray)) {
