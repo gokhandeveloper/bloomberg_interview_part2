@@ -13,19 +13,25 @@ public class App {
     public static String getShortestUniqueString(String[] array, String string) {
         String x = checkLengths(array, string);
         if (x != null) return x;
-        if (array.length >= 1 &&string.length()>=1) {
-            List<String> foundStrings = new ArrayList<>();
-            for (String stringInArray : array) {
-                List<String> splittedStrings = Arrays.asList(string.split(""));
-                for(String splittedString : removeDuplicates(splittedStrings)) {
-                    if(splittedString.equals(stringInArray)) {
-                        foundStrings.add(splittedString);
-                    }
-                }
-            }
+        if (array.length >= 1 && string.length()>=1) {
+            List<String> foundStrings = findStringsInArray(array, string);
             return concatinateFoundStrings(foundStrings);
         }
         return "";
+    }
+
+    @NotNull
+    private static List<String> findStringsInArray(String[] array, String string) {
+        List<String> foundStrings = new ArrayList<>();
+        for (String stringInArray : array) {
+            List<String> splittedStrings = Arrays.asList(string.split(""));
+            for(String splittedString : removeDuplicates(splittedStrings)) {
+                if(splittedString.equals(stringInArray)) {
+                    foundStrings.add(splittedString);
+                }
+            }
+        }
+        return foundStrings;
     }
 
     @NotNull
