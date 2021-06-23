@@ -1,13 +1,15 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class AppTest {
 
     @Test
     public void givenEmptyArrayReturnsEmptyArray(){
         String [] emptyArray = {};
         String emptyString = "";
-        System.out.println(App.getShortestUniqueString(emptyArray, emptyString).length());
         Assertions.assertTrue(App.getShortestUniqueString(emptyArray, emptyString).length()==0);
     }
 
