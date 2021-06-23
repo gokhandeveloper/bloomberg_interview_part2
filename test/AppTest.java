@@ -100,4 +100,11 @@ public class AppTest {
         Assertions.assertEquals("x8z", App.getShortestUniqueString(array, string));
     }
 
+    @Test
+    public void nothing() {
+        String a =;
+
+        (a) -> false;
+    }
+
 }
